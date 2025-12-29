@@ -2,14 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello Stage') {
-            steps {
-                echo 'Hello Akash! Jenkins pipeline is working 🎉'
-            }
-        }
         stage('Checkworkspace') {
             steps {
                 sh 'pwd'
+            }
+        }
+        stage('Run Python Script') {
+            steps {
+                sh 'python3 --version'
+                sh 'python3 app.py'
             }
         }
     }
