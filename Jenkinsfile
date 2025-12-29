@@ -15,6 +15,11 @@ pipeline {
                 sh 'ls'
             }
         }
+        stage('Printing the python app') {
+            steps {
+                sh 'python app.py'
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
