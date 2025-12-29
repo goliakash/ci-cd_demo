@@ -2,15 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkworkspace') {
+
+        stage('Checkout Code') {
             steps {
-                sh 'pwd'
+                echo 'Code checked out successfully'
             }
         }
-        stage('Run Python Script') {
+
+        stage('Check Workspace') {
             steps {
-                sh 'python3 --version'
-                sh 'python3 app.py'
+                sh 'pwd'
+                sh 'ls'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t python-ci-cd-app:latest .'
             }
         }
     }
